@@ -1,0 +1,137 @@
+#include <Servo.h>
+#include <Stepper.h>
+
+// drive motor ports
+int DR1 = #;
+int DR2 = #;
+int DR3 = #;
+int DR4 = #;
+
+// ultrasonic sensor ports
+const int trigPin = #;
+const int echoPin = #;
+
+
+// set up servos 
+Servo torsion_servo;
+Servo scoop_servo;
+Servo trapdoor_servo;
+
+// set up steppers
+const int stepsPerRevolution = 200; // this sets how many steps per revolution
+Stepper rotation_stepper(stepsPerRevolution, #, #, #, #);
+Stepper limb1_stepper(stepsPerRevolution, #, #, #, #);
+Stepper limb2_stepper(stepsPerRevolution, #, #, #, #);
+
+
+
+void setup() {
+
+  //ultrasonic set up
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT); 
+  // set up servos ports
+  torsion_servo.attach(#);
+  scoop_servo.attach(#);
+  trapdoor_servo.attach(#);
+
+  rotation_stepper.setSpeed(10); // stepper motor speed
+
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+
+void scoop_rocks() { 
+
+  // shit tonne of micro management, or use ineverse kinemeatics algorith where it follows a 2d function 
+
+
+
+}
+
+void drive() { 
+
+  digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
+  digitalWrite(DR2, LOW);
+  digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
+  digitalWrite(DR4, HIGH);
+  analogWrite(ENA, 100);  // speed setting goes up to 255
+  delay(3000);          // time driving forward
+  analogWrite(ENA, 0); // turns off motor
+
+}
+
+void search() {   
+
+  // 
+
+
+  rotation_stepper.step(-50);  // rotate to intial position
+  delay(300)
+
+
+
+  for (int i = 0; i < 50; i++) {
+
+
+    rotation_stepper 
+
+    
+
+
+
+    if (detected_distance < distance){ // collects values for closest angle and distance 
+      distance = detected;
+      angle = current_angle
+
+    }
+
+
+  }
+
+
+
+
+  
+
+}
+
+void deposit(float distance, float angle) { 
+
+
+//y components between the base of the arm 
+  float y = 360; 
+  float distance; 
+
+  float length_1 = ; 
+  float length_2 = ; 
+  float scoop_width = ; 
+  float length_3 = sqrt(length_2*length_2 + Scoop_width*Scoop_width )
+  float angle_offset = atan2(scoop_width, length_2); 
+
+  float angle_2_offset = acos((distance*distance + y*y - length_1*length_1 - length_3*length_3 )/ 2 *length_1 * length_3 )
+  float angle_1 = atan2(y, distance) - atan(length_3 *sin (angle_2_offset), length_1+ length_3 * cos(angle_2_offset))
+  float angle_2 = angle_2_offset - angle_offset
+
+  // actuate servos 
+  // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
+  
+}
+ 
+void return_to_start() {
+ 
+  digitalWrite(DR1, LOW);      // sets direction , invert high and low for reverse
+  digitalWrite(DR2, HIGH);
+  digitalWrite(DR3, HIGH);      // sets direction , invert high and low for reverse
+  digitalWrite(DR4, LOW);
+  analogWrite(ENA, 100);  // speed setting goes up to 255
+  delay(3000);          // time driving forward
+  analogWrite(ENA, 0); // turns off motor
+
+}
