@@ -72,6 +72,18 @@ void loop() {
   // 5. deposit rocks
   // 6. return to end zone/second run?
 
+  drive_to_collection_zone();
+
+  scoop_rocks();
+
+  drive_to_hopper_platform();
+
+  search();
+
+  deposit(distance);
+
+  return_to_start();
+
 }
 
 
@@ -87,14 +99,10 @@ void scoop_rocks() {
 
   // raise scoop, correct servo angle to be determined during testing
   scoop_servo.write(scoopRaiseAngle);
-  
-  
-
-
 
 }
 
-void drive() { 
+void drive_to_collection_zone() { 
   analogWrite(ENA, 100);  // speed setting goes up to 255
   digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
   digitalWrite(DR2, LOW);
@@ -103,6 +111,16 @@ void drive() {
   delay(3000);          // time driving forward
   analogWrite(ENA, 0); // turns off motor
 
+}
+
+  void drive_to_hopper_platform() {
+  analogWrite(ENA, #); 
+  digitalWrite(DR1, HIGH);      
+  digitalWrite(DR2, LOW);
+  digitalWrite(DR3, LOW);      
+  digitalWrite(DR4, HIGH);
+  delay(#);          
+  analogWrite(ENA, 0); 
 }
 
 void search() {   
