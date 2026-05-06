@@ -61,6 +61,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  // proposed run sequence:
+  // 1. drive to collection area
+  // 2. collect rocks
+  // 3. drive to platform
+  // 4. align with hopper
+  // 5. deposit rocks
+  // 6. return to end zone/second run?
 
 }
 
@@ -68,6 +75,17 @@ void loop() {
 void scoop_rocks() { 
 
   // shit tonne of micro management, or use ineverse kinemeatics algorith where it follows a 2d function 
+
+  // lower scoop, correct servo angle to be determined during testing
+  scoop_servo.write(#);
+
+  // rock collection in progress, time to be determined during testing
+  delay(#);
+
+  // raise scoop, correct servo angle to be determined during testing
+  scoop_servo.write(#);
+  
+  
 
 
 
