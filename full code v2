@@ -100,6 +100,16 @@ void loop() {
 
 }
 
+void drive_to_collection_zone() { 
+  analogWrite(ENA, 100);  // speed setting goes up to 255
+  digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
+  digitalWrite(DR2, LOW);
+  digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
+  digitalWrite(DR4, HIGH);
+  delay(3000);          // time driving forward
+  analogWrite(ENA, 0); // turns off motor
+
+}
 
 void scoop_rocks() { 
 
@@ -116,18 +126,9 @@ void scoop_rocks() {
 
 }
 
-void drive_to_collection_zone() { 
-  analogWrite(ENA, 100);  // speed setting goes up to 255
-  digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
-  digitalWrite(DR2, LOW);
-  digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
-  digitalWrite(DR4, HIGH);
-  delay(3000);          // time driving forward
-  analogWrite(ENA, 0); // turns off motor
 
-}
 
-  void drive_to_hopper_platform() {
+void drive_to_hopper_platform() {
   analogWrite(ENA, #); 
   digitalWrite(DR1, HIGH);      
   digitalWrite(DR2, LOW);
