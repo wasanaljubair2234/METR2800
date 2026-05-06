@@ -5,12 +5,12 @@
 // any hashes # requires the ports to be inputeded
 
 
-
 // drive motor ports
 int DR1 = #;
 int DR2 = #;
 int DR3 = #;
 int DR4 = #;
+
 
 // ultrasonic sensor ports
 const int trigPin = #;
@@ -24,6 +24,7 @@ Servo torsion_servo;
 Servo scoop_servo;
 Servo trapdoor_servo;
 
+
 // set up steppers
 const int stepsPerRevolution = 200; // this sets how many steps per revolution
 Stepper rotation_stepper(stepsPerRevolution, #, #, #, #);
@@ -31,9 +32,11 @@ Stepper limb1_stepper(stepsPerRevolution, #, #, #, #);
 Stepper limb2_stepper(stepsPerRevolution, #, #, #, #);
 float angle = 0.0; // in steps of motor, not degrees
 
+
 // calibration constants 
 const int scoopLowerAngle = #;
 const int scoopRaiseAngle = #;
+
 
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
@@ -60,6 +63,17 @@ void setup() {
 
 
 
+}
+
+// helper function for distance
+float getDistanceCm() {
+  digitalWrite(trig_pin, LOW);
+  delayMircoseconds(2);
+  digitalWrite(trig_pin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig_pin, LOW);
+  float timing = pulseIn(echo_pin, HIGH);
+  return (timing * 0.034) / 2; 
 }
 
 void loop() {
@@ -129,20 +143,15 @@ void search() {
 
 
   rotation_stepper.step(-50);  // rotate to intial position
-  delay(300)
+  delay(300);
   
   for (int i = 0; i < 50; i++) {
     rotation_stepper.step(1);  // move motor 1 step , 50 steps is 90 degrees, then scan distance
-    delay(10)
-    digitalWrite(trig_pin, LOW);
-    delay(2);
-    digitalWrite(trig_pin, HIGH);
     delay(10);
-    timing = pulseIn(echo_pin, HIGH);
-    detected_distance = (timing * 0.034) / 2; 
+    detected_distance = getDistanceCm();
     if (detected_distance < distance){ // collects values for closest angle and distance 
       distance = detected_distance;
-      angle = current_angle
+      angle = current_angle; 
     }
 
 
