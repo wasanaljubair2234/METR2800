@@ -33,7 +33,7 @@ float angle = 0.0; // in steps of motor, not degrees
 
 // calibration constants 
 const int scoopLowerAngle = #;
-const int scoopHigherAngle = #;
+const int scoopRaiseAngle = #;
 
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
@@ -86,7 +86,7 @@ void scoop_rocks() {
   delay(#);
 
   // raise scoop, correct servo angle to be determined during testing
-  scoop_servo.write(scoopHigherAngle);
+  scoop_servo.write(scoopRaiseAngle);
   
   
 
