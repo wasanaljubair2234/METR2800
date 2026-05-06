@@ -68,7 +68,7 @@ void setup() {
 // helper function for distance
 float getDistanceCm() {
   digitalWrite(trig_pin, LOW);
-  delayMircoseconds(2);
+  delayMicroseconds(2);
   digitalWrite(trig_pin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trig_pin, LOW);
