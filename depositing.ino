@@ -1,5 +1,7 @@
 // rock deposition 
 // uses the detected hopper distance returned by getDistanceCm() from the sensing/search function 
+// need to convert angle_1 and angle_2 into step counts
+// arm commands can only be confirmed once stepper drivers are confirmed
 
 void deposit(float distance) { 
 
@@ -19,7 +21,9 @@ void deposit(float distance) {
   float angle_1 = atan2(y, distance) - atan(length_3 *sin(angle_2_offset), length_1 + length_3 * cos(angle_2_offset));
   float angle_2 = angle_2_offset - angle_offset
 
+  
   // acuate servos 
   // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
+  
   
 }
