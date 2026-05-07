@@ -38,7 +38,7 @@ void search() {
 
   }
 
-  rotations_stepper.step(-1*(50 - angle)) // rotate back to be in line with tube
+  rotation_stepper.step(-1*(50 - angle)) // rotate back to be in line with tube
 }
 
 
