@@ -75,19 +75,8 @@ void setup() {
   limb2_stepper.setSpeed(10);
 
 
-
 }
 
-// helper function for distance
-float getDistanceCm() {
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  float timing = pulseIn(echoPin, HIGH);
-  return (timing * 0.034) / 2; 
-}
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -113,96 +102,6 @@ void loop() {
 
 }
 
-void drive_to_collection_zone() { 
-  analogWrite(ENA, initialSpeed);  // speed setting goes up to 255
-  digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
-  digitalWrite(DR2, LOW);
-  digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
-  digitalWrite(DR4, HIGH);
-  delay(timeToCollectionZone);          // time driving forward
-  analogWrite(ENA, 0); // turns off motor
-
-}
-
-void scoop_rocks() { 
-
-  // shit tonne of micro management, or use ineverse kinemeatics algorith where it follows a 2d function 
-
-  // lower scoop, correct servo angle to be determined during testing
-  scoop_servo.write(scoopLowerAngle);
-  delay(scoopLoweringTime); // give scoop enough time to fully lower before continuing into the collection zone
-
-  // rock collection in progress, time to be determined during testing
-  analogWrite(ENA, collectionSpeed);
-  delay(collectionTime);
-
-  // raise scoop, correct servo angle to be determined during testing
-  analogWrite(ENA,0);
-  scoop_servo.write(scoopRaiseAngle);
-  delay(scoopRaisingTime); // give scoop enough time to fully raise before moving to hopper platform
-
-}
-
-
-
-void drive_to_hopper_platform() {
-  analogWrite(ENA, #); 
-  digitalWrite(DR1, HIGH);      
-  digitalWrite(DR2, LOW);
-  digitalWrite(DR3, LOW);      
-  digitalWrite(DR4, HIGH);
-  delay(#);          
-  analogWrite(ENA, 0); 
-}
-
-void search() {   
-
-  // 
-
-
-  rotation_stepper.step(-50);  // rotate to intial position
-  delay(300);
-  
-  for (int i = 0; i < 50; i++) {
-    rotation_stepper.step(1);  // move motor 1 step , 50 steps is 90 degrees, then scan distance
-    delay(10);
-    detected_distance = getDistanceCm();
-    if (detected_distance < distance){ // collects values for closest angle and distance 
-      distance = detected_distance;
-      angle = current_angle; 
-    }
-
-
-  }
-
-  // rotate back to be in line with tube
-
-  rotations_stepper.step(-1*(50 - angle))
-
-
-  
-}
-
-void deposit(float distance) { 
-
-
-//y components between the base of the arm 
-  float y = 360; 
-
-  float length_1 = ; 
-  float length_2 = ; 
-  float scoop_width = ; 
-  float length_3 = sqrt(length_2*length_2 + Scoop_width*Scoop_width );
-  float angle_offset = atan2(scoop_width, length_2); 
-
-  float angle_2_offset = acos((distance*distance + y*y - length_1*length_1 - length_3*length_3 )/ 2 *length_1 * length_3 );
-  float angle_1 = atan2(y, distance) - atan(length_3 *sin(angle_2_offset), length_1 + length_3 * cos(angle_2_offset));
-  float angle_2 = angle_2_offset - angle_offset
-
-  // acuate servos 
-  // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
-  
-}
  
 void return_to_start() {
  
