@@ -36,13 +36,20 @@ float angle = 0.0; // in steps of motor, not degrees
 // constants 
 const int initialSpeed = 100; // speed from start zone to collection zone
 const int timeToCollectionZone = 3000; // time to reach collection zone from start zone
+
 const int scoopLowerAngle = #; // angle to lower scoop to begin rock collection
 const int scoopLoweringTime = #; // time it takes to fully lower scoop
+
 const int scoopRaiseAngle = #; // angle to raise scoop after rock collection
 const int scoopRaisingTime = #; // time it takes to fully raise scoop
+
 const int collectionSpeed = #; // speed to travel at during rock collection, might be slower than initialSpeed
 const int collectionTime = #; // time it takes to collect all rocks 
 
+const int trapdoorOpenAngle = #; // servo position that opens the trapdoor
+const int trapdoorCloseAngle = #; // servo positon that closes the trapdoor
+const int trapdoorOpenTime = #; // how long the trapdoor stays open to release the rocks
+const int trapdoorCloseTime = #; // how long it takes to close the trap door again
 
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
