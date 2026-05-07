@@ -85,7 +85,7 @@ float getDistanceCm() {
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  float timing = pulseIn(echo_pin, HIGH);
+  float timing = pulseIn(echoPin, HIGH);
   return (timing * 0.034) / 2; 
 }
 
