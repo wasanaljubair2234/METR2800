@@ -6,6 +6,11 @@ void scoop_rocks() {
   scoop_servo.write(scoopLowerAngle);  // lower scoop into correct position
   delay(scoopLoweringTime);   // give scoop enough time to fully lower before continuing into the collection zone
 
+  digitalWrite(DR1, HIGH);      
+  digitalWrite(DR2, LOW);
+  digitalWrite(DR3, LOW);      
+  digitalWrite(DR4, HIGH);
+  
   analogWrite(ENA, collectionSpeed);  // move slowly while collecting rocks 
   delay(collectionTime);
 
