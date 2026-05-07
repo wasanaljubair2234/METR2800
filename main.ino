@@ -77,6 +77,7 @@ void setup() {
   //ultrasonic set up
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT); 
+  
   // set up servos ports
   torsion_servo.attach(#);
   scoop_servo.attach(#);
