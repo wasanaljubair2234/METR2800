@@ -27,15 +27,18 @@ void search() {
     rotation_stepper.step(1);  // move motor 1 step , 50 steps is 90 degrees, then scan distance
     delay(10);
 
+    current_angle = i; // records current scan step number 
+
     detected_distance = getDistanceCm();
 
     if (detected_distance < distance) { // collects and stores values for closest angle and distance 
       distance = detected_distance;
       angle = current_angle; 
-    }
+    }   
 
   }
 
   rotations_stepper.step(-1*(50 - angle)) // rotate back to be in line with tube
 }
+
 
