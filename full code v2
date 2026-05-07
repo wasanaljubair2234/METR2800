@@ -33,9 +33,15 @@ Stepper limb2_stepper(stepsPerRevolution, #, #, #, #);
 float angle = 0.0; // in steps of motor, not degrees
 
 
-// calibration constants 
-const int scoopLowerAngle = #;
-const int scoopRaiseAngle = #;
+// constants 
+const int initialSpeed = 100; // speed from start zone to collection zone
+const int timeToCollectionZone = 3000; // time to reach collection zone from start zone
+const int scoopLowerAngle = #; // angle to lower scoop to begin rock collection
+const int scoopLoweringTime = #; // time it takes to fully lower scoop
+const int scoopRaiseAngle = #; // angle to raise scoop after rock collection
+const int scoopRaisingTime = #; // time it takes to fully raise scoop
+const int collectionSpeed = #; // speed to travel at during rock collection, might be slower than initialSpeed
+const int collectionTime = #; // time it takes to collect all rocks 
 
 
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
@@ -101,12 +107,12 @@ void loop() {
 }
 
 void drive_to_collection_zone() { 
-  analogWrite(ENA, 100);  // speed setting goes up to 255
+  analogWrite(ENA, initialSpeed);  // speed setting goes up to 255
   digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
   digitalWrite(DR2, LOW);
   digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
   digitalWrite(DR4, HIGH);
-  delay(3000);          // time driving forward
+  delay(timeToCollectionZone);          // time driving forward
   analogWrite(ENA, 0); // turns off motor
 
 }
@@ -117,12 +123,16 @@ void scoop_rocks() {
 
   // lower scoop, correct servo angle to be determined during testing
   scoop_servo.write(scoopLowerAngle);
+  delay(scoopLoweringTime); // give scoop enough time to fully lower before continuing into the collection zone
 
   // rock collection in progress, time to be determined during testing
-  delay(#);
+  analogWrite(ENA, collectionSpeed);
+  delay(collectionTime);
 
   // raise scoop, correct servo angle to be determined during testing
+  analogWrite(ENA,0);
   scoop_servo.write(scoopRaiseAngle);
+  delay(scoopRaisingTime); // give scoop enough time to fully raise before moving to hopper platform
 
 }
 
