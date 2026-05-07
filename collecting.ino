@@ -14,7 +14,7 @@ void scoop_rocks() {
   analogWrite(ENA, collectionSpeed);  // move slowly while collecting rocks 
   delay(collectionTime);
 
-  analogWrite(ENA,0);  // stop robot after collection
+  analogWrite(ENA, 0);  // stop robot after collection
   
   scoop_servo.write(scoopRaiseAngle);  // raise scoop after collection
   delay(scoopRaisingTime); // give scoop enough time to fully raise before moving to hopper platform
