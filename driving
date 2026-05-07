@@ -3,21 +3,21 @@
 
 void drive_to_collection_zone() { 
   
-  analogWrite(ENA, initialSpeed); // travel speed from start zone to collection zone
+  analogWrite(ENA, initialSpeed);  // travel speed from start zone to collection zone
   
   digitalWrite(DR1, HIGH);      // sets direction , invert high and low for reverse
   digitalWrite(DR2, LOW);
   digitalWrite(DR3, LOW);      // sets direction , invert high and low for reverse
   digitalWrite(DR4, HIGH);
   
-  delay(timeToCollectionZone);          // time it takes to drive forward from start zone to collection zone
+  delay(timeToCollectionZone);  // time it takes to drive forward from start zone to collection zone
   analogWrite(ENA, 0); // turns off motor
 
 }
 
 void drive_to_hopper_platform() {
   
-  analogWrite(ENA, hopperDriveSpeed); // speed from collection zone to hopper platform
+  analogWrite(ENA, hopperDriveSpeed);  // speed from collection zone to hopper platform
   
   digitalWrite(DR1, HIGH);      
   digitalWrite(DR2, LOW);
