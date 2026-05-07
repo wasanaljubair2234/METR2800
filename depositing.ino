@@ -19,16 +19,15 @@ void deposit(float distance) {
   // arm joint angles
   float angle_2_offset = acos((distance*distance + y*y - length_1*length_1 - length_3*length_3 )/ 2 *length_1 * length_3 );
   float angle_1 = atan2(y, distance) - atan(length_3 *sin(angle_2_offset), length_1 + length_3 * cos(angle_2_offset));
-  float angle_2 = angle_2_offset - angle_offset
+  float angle_2 = angle_2_offset - angle_offset;
+  
+  // acuate servos 
+  // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
 
   trapdoor_servo.write(trapdoorOpenAngle); // rotate servo position into open position to release the rocks
   delay(trapdoorOpenTime); // keep trapdoor open long enough to release all rocks 
 
   trapdoor_servo.write(trapdoorCloseAngle); // close trapdoor
   delay(trapdoorCloseTime);  // give enough time for trapdoor to fully close before next movement
-  
-  // acuate servos 
-  // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
-  
   
 }
