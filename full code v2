@@ -80,11 +80,11 @@ void setup() {
 
 // helper function for distance
 float getDistanceCm() {
-  digitalWrite(trig_pin, LOW);
+  digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(trig_pin, HIGH);
+  digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trig_pin, LOW);
+  digitalWrite(trigPin, LOW);
   float timing = pulseIn(echo_pin, HIGH);
   return (timing * 0.034) / 2; 
 }
