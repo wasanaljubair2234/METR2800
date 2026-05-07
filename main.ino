@@ -17,6 +17,7 @@ const int trigPin = #;
 const int echoPin = #;
 float timing = 0.0;
 float detected_distance = 0.0;
+float distance = 9999.0;
 
 
 // set up servos 
@@ -31,6 +32,17 @@ Stepper rotation_stepper(stepsPerRevolution, #, #, #, #);
 Stepper limb1_stepper(stepsPerRevolution, #, #, #, #);
 Stepper limb2_stepper(stepsPerRevolution, #, #, #, #);
 float angle = 0.0; // in steps of motor, not degrees
+
+// A4988 steppers
+const int stepsPerRevolution = 200;
+const int rotationStepPin = #; 
+const int rotationDirPin = #; 
+const int limb1StepPin = #;
+const int limb1DirPin = #;
+const int limb2StepPin = #;
+const int limb2DirPin = #;
+float angle = 0;
+float current_angle = 0;
 
 
 // constants 
