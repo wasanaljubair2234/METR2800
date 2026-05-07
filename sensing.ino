@@ -19,6 +19,9 @@ float getDistanceCm() {
 
 void search() {   
 
+  distance = 9999.0;
+  angle = 0;
+
   rotation_stepper.step(-50);  // rotate sensor to intial position
   delay(300);
   
