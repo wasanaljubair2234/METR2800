@@ -3,15 +3,15 @@
 // helper function for distance
 float getDistanceCm() {
   
-  digitalWrite(trig_pin, LOW);
+  digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
-  digitalWrite(trig_pin, HIGH);
+  digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   
-  digitalWrite(trig_pin, LOW);
+  digitalWrite(trigPin, LOW);
   
-  float timing = pulseIn(echo_pin, HIGH); // measures return pulse time
+  float timing = pulseIn(echoPin, HIGH); // measures return pulse time
   
   return (timing * 0.034) / 2;  // converts pulse time to cm
 }
