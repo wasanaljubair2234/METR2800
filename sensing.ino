@@ -41,7 +41,7 @@ void search() {
 
   }
 
-  moveStepper(rotationStepPin, rotationDirPin, (# - angle), #) // rotate back to be in line with tube
+  moveStepper(rotationStepPin, rotationDirPin, (50 - angle), #) // rotate back to be in line with tube
 }
 
 
