@@ -22,12 +22,12 @@ void search() {
   distance = 9999.0;
   angle = 0;
 
-  rotation_stepper.step(-50);  // rotate sensor to intial position
+  moveStepper(rotationStepPin, rotationDirPin, #, #);  // rotate sensor to intial position
   delay(300);
   
   for (int i = 0; i < 50; i++) {
     // rotate incrementally while scanning
-    rotation_stepper.step(1);  // move motor 1 step , 50 steps is 90 degrees, then scan distance
+    moveStepper(rotationStepPin, rotationDirPin, #, #);  // move motor 1 step , 50 steps is 90 degrees, then scan distance
     delay(10);
 
     current_angle = i; // records current scan step number 
@@ -41,7 +41,7 @@ void search() {
 
   }
 
-  rotation_stepper.step(-1*(50 - angle)) // rotate back to be in line with tube
+  moveStepper(rotationStepPin, rotationDirPin, (# - angle), #) // rotate back to be in line with tube
 }
 
 
