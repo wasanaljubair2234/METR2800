@@ -26,13 +26,6 @@ Servo scoop_servo;
 Servo trapdoor_servo;
 
 
-// set up steppers
-const int stepsPerRevolution = 200; // this sets how many steps per revolution
-Stepper rotation_stepper(stepsPerRevolution, #, #, #, #);
-Stepper limb1_stepper(stepsPerRevolution, #, #, #, #);
-Stepper limb2_stepper(stepsPerRevolution, #, #, #, #);
-float angle = 0.0; // in steps of motor, not degrees
-
 // A4988 steppers
 const int stepsPerRevolution = 200;
 const int rotationStepPin = #; 
@@ -41,8 +34,8 @@ const int limb1StepPin = #;
 const int limb1DirPin = #;
 const int limb2StepPin = #;
 const int limb2DirPin = #;
-float angle = 0;
-float current_angle = 0;
+float angle = 0.0; // in steps of motor not degrees
+float current_angle = 0.0;
 
 
 // constants 
