@@ -24,6 +24,12 @@ void deposit(float distance) {
   // acuate servos 
   // actuate angle 1, then 2  include some factor phi_1, phi_2 etc to calibrate realworld tests
 
+  int limb1Steps = #;
+  int limb2Steps = #;
+
+  moveStepper(limb1StepPin, limb1DirPin, limb1Steps, #);
+  moveStepper(limb2StepPin, limb2DirPin, limb2Steps, #);
+
   trapdoor_servo.write(trapdoorOpenAngle); // rotate servo position into open position to release the rocks
   delay(trapdoorOpenTime); // keep trapdoor open long enough to release all rocks 
 
