@@ -72,7 +72,7 @@ float phi_5 = 0.0;
 float phi_6 = 0.0; 
 
 
-void moveStepper(int stepPin, int dirPin, int steps, direction) {
+void moveStepper(int stepPin, int dirPin, int steps, bool direction) {
   ditigitalWrite(dirPin, direction);
 
   for (int i = 0; i < steps; i++) {
