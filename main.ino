@@ -83,10 +83,15 @@ void setup() {
   scoop_servo.attach(#);
   trapdoor_servo.attach(#);
   
-  rotation_stepper.setSpeed(10); // stepper motor speed
-  limb1_stepper.setSpeed(10);
-  limb2_stepper.setSpeed(10);
+  pinMode(rotationStepPin, OUTPUT);
+  pinMode(rotationDirPin, OUTPUT);
 
+  pinMode(limb1StepPin, OUTPUT);
+  pinMode(limb1DirPin, OUTPUT);
+
+  pinMode(limb2StepPin, OUTPUT);
+  pinMode(limb2DirPin, OUTPUT)
+  
 
 }
 
