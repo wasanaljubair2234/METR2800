@@ -71,6 +71,18 @@ float phi_4 = 0.0;
 float phi_5 = 0.0; 
 float phi_6 = 0.0; 
 
+void moveStepper(int stepPin, int dirPin, int steps, direction) {
+  ditigitalWrite(dirPin, direction);
+
+  for (int i = 0; i < steps; i++) {
+    digitalWrite(stepPin, HIGH); 
+    delayMicroseconds(#);
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(#);
+  }
+}
+
+
 
 void setup() {
 
