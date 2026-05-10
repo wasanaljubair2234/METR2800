@@ -102,7 +102,7 @@ void setup() {
   pinMode(limb1DirPin, OUTPUT);
 
   pinMode(limb2StepPin, OUTPUT);
-  pinMode(limb2DirPin, OUTPUT)
+  pinMode(limb2DirPin, OUTPUT);
   
 
 }
