@@ -59,6 +59,8 @@ const int trapdoorCloseTime = #; // how long it takes to close the trap door aga
 const unsigned long runTimeLimit = 120000;
 unsigned long startTime; 
 
+const int endZoneSpeed = #; // speed from hopper platform to end zone
+
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
 float phi_2 = 0.0; 
