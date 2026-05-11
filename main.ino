@@ -56,6 +56,9 @@ const int trapdoorCloseAngle = #; // servo positon that closes the trapdoor
 const int trapdoorOpenTime = #; // how long the trapdoor stays open to release the rocks
 const int trapdoorCloseTime = #; // how long it takes to close the trap door again
 
+const unsigned long runTimeLimit = 120000;
+unsigned long startTime; 
+
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
 float phi_2 = 0.0; 
@@ -97,6 +100,8 @@ void setup() {
   pinMode(limb2StepPin, OUTPUT);
   pinMode(limb2DirPin, OUTPUT);
 
+  startTime = millis();
+
 }
 
 
@@ -119,6 +124,13 @@ void loop() {
   search();
 
   deposit(distance);
+
+  for (runTimeLimit - startTime > 60000) {
+    drive_to_collection_zone();
+    scoop_rocks();
+    drive_to_hopper_platform();
+    search();
+    return_to_end_zone();
 
   return_to_start();
 
