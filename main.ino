@@ -57,6 +57,7 @@ const int trapdoorOpenTime = #; // how long the trapdoor stays open to release t
 const int trapdoorCloseTime = #; // how long it takes to close the trap door again
 
 const int endZoneSpeed = #; // speed from hopper platform to end zone
+const int timeToEndZone = #; // time it takes to reach end zone from hopper platform
 
 // varibales for tweeking, can add them into movement code, to account for overshoot, 
 float phi_1 = 0.0; 
