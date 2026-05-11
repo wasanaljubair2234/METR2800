@@ -27,3 +27,15 @@ void drive_to_hopper_platform() {
   delay(timeToHopperPlatform);  // time it takes to drive forward from collection zone to hopper platform
   analogWrite(ENA, 0); 
 }
+
+void drive_to_end_zone() {
+  analogWrite(ENA, #);
+  
+  digitalWrite(DR1, HIGH);
+  digitalWrite(DR2, LOW);
+  digitalWrite(DR3,LOW);
+  digitalWrite(DR4,HIGH);
+
+  delay(#);
+  analogWrite(ENA, 0);
+}
