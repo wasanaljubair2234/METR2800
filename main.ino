@@ -76,8 +76,6 @@ void moveStepper(int stepPin, int dirPin, int steps, bool direction) {
   }
 }
 
-unsigned long startTime; 
-
 
 void setup() {
 
@@ -99,8 +97,6 @@ void setup() {
   pinMode(limb2StepPin, OUTPUT);
   pinMode(limb2DirPin, OUTPUT);
 
-  startTime = millis();
-
 }
 
 
@@ -114,8 +110,6 @@ void loop() {
   // 5. deposit rocks
   // 6. return to end zone/second run?
 
-  
-  
   drive_to_collection_zone();
 
   scoop_rocks();
@@ -128,7 +122,7 @@ void loop() {
 
   return_to_start();
 
-}
+  }
 
  
 void return_to_start() {
