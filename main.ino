@@ -111,7 +111,7 @@ void loop() {
   // 3. drive to platform
   // 4. align with hopper
   // 5. deposit rocks
-  // 6. return to end zone/second run?
+  // 6. return to end zone
 
   drive_to_collection_zone();
 
