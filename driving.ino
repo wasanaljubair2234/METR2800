@@ -36,6 +36,6 @@ void drive_to_end_zone() {
   digitalWrite(DR3,LOW);
   digitalWrite(DR4,HIGH);
 
-  delay(#);
+  delay(timeToEndZone);
   analogWrite(ENA, 0);
 }
