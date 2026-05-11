@@ -123,6 +123,7 @@ void loop() {
   deposit(distance);
 
   return_to_start();
+  drive_to_end_zone(); 
 
   }
 
