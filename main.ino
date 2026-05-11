@@ -123,20 +123,7 @@ void loop() {
 
   deposit(distance);
 
-  return_to_start();
   drive_to_end_zone(); 
 
   }
 
- 
-void return_to_start() {
- 
-  digitalWrite(DR1, LOW);      // sets direction , invert high and low for reverse
-  digitalWrite(DR2, HIGH);
-  digitalWrite(DR3, HIGH);      // sets direction , invert high and low for reverse
-  digitalWrite(DR4, LOW);
-  analogWrite(ENA, 100);  // speed setting goes up to 255
-  delay(3000);          // time driving forward
-  analogWrite(ENA, 0); // turns off motor
-
-}
