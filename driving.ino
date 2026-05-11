@@ -29,7 +29,7 @@ void drive_to_hopper_platform() {
 }
 
 void drive_to_end_zone() {
-  analogWrite(ENA, #);
+  analogWrite(ENA, endZoneSpeed);
   
   digitalWrite(DR1, HIGH);
   digitalWrite(DR2, LOW);
